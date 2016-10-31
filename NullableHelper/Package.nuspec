@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-    <licenseUrl>$licenseUrl$</licenseUrl>
-    <projectUrl>$projectUrl$</projectUrl>
+    <id>KLibrary.Subsets.NullableHelper</id>
+    <version>1.0.0</version>
+    <title>KLibrary Subsets - NullableHelper</title>
+    <authors>Keiho Sakapon</authors>
+    <owners>Keiho Sakapon</owners>
+    <licenseUrl>https://github.com/sakapon/KLibrary-Subsets/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/sakapon/KLibrary-Subsets</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>$releaseNotes$</releaseNotes>
-    <copyright>$copyright$</copyright>
-    <tags>$tags$</tags>
+    <description>The NullableHelper class.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>© 2016 Keiho Sakapon</copyright>
+    <tags>Nullable Pipeline</tags>
   </metadata>
   <files>
     <file src="*.pp" target="content" />
