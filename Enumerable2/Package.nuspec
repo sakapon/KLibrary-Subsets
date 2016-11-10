@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>KLibrary.Subsets.Enumerable2</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <title>KLibrary Subsets - Enumerable2</title>
     <authors>Keiho Sakapon</authors>
     <owners>Keiho Sakapon</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/sakapon/KLibrary-Subsets</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>The Enumerable2 class.</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Add methods.</releaseNotes>
     <copyright>© 2016 Keiho Sakapon</copyright>
     <tags>LINQ Enumerable IEnumerable</tags>
   </metadata>
