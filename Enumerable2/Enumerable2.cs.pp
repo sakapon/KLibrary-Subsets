@@ -15,6 +15,7 @@ namespace $rootnamespace$
         /// <typeparam name="TResult">The type of the object.</typeparam>
         /// <param name="element">An object.</param>
         /// <returns>An <see cref="IEnumerable{TResult}"/> that contains the input object.</returns>
+        [DebuggerHidden]
         public static IEnumerable<TResult> MakeEnumerable<TResult>(this TResult element)
         {
             yield return element;
@@ -26,6 +27,7 @@ namespace $rootnamespace$
         /// <typeparam name="TResult">The type of the object.</typeparam>
         /// <param name="element">An object.</param>
         /// <returns>An array that contains the input object.</returns>
+        [DebuggerHidden]
         public static TResult[] MakeArray<TResult>(this TResult element)
         {
             return new[] { element };
@@ -37,6 +39,7 @@ namespace $rootnamespace$
         /// <typeparam name="TResult">The type of the value to be repeated in the result sequence.</typeparam>
         /// <param name="element">The value to be repeated.</param>
         /// <returns>An <see cref="IEnumerable{TResult}"/> that contains a repeated value.</returns>
+        [DebuggerHidden]
         public static IEnumerable<TResult> Repeat<TResult>(TResult element)
         {
             while (true)
@@ -50,6 +53,7 @@ namespace $rootnamespace$
         /// <param name="element">The value to be repeated.</param>
         /// <param name="count">The number of times to repeat the value in the generated sequence. <see langword="null"/> if the value is repeated infinitely.</param>
         /// <returns>An <see cref="IEnumerable{TResult}"/> that contains a repeated value.</returns>
+        [DebuggerHidden]
         public static IEnumerable<TResult> Repeat<TResult>(TResult element, int? count)
         {
             return count.HasValue ? Enumerable.Repeat(element, count.Value) : Repeat(element);
@@ -62,6 +66,7 @@ namespace $rootnamespace$
         /// <param name="source">A sequence of values.</param>
         /// <param name="element">The value to be prepended.</param>
         /// <returns>A concatenated <see cref="IEnumerable{TSource}"/>.</returns>
+        [DebuggerHidden]
         public static IEnumerable<TSource> Prepend<TSource>(this IEnumerable<TSource> source, TSource element)
         {
             if (source == null) throw new ArgumentNullException("source");
@@ -79,6 +84,7 @@ namespace $rootnamespace$
         /// <param name="source">A sequence of values.</param>
         /// <param name="element">The value to be appended.</param>
         /// <returns>A concatenated <see cref="IEnumerable{TSource}"/>.</returns>
+        [DebuggerHidden]
         public static IEnumerable<TSource> Append<TSource>(this IEnumerable<TSource> source, TSource element)
         {
             if (source == null) throw new ArgumentNullException("source");
@@ -96,6 +102,7 @@ namespace $rootnamespace$
         /// <param name="source">A sequence of values.</param>
         /// <param name="action">An action to apply to each element.</param>
         /// <returns>An <see cref="IEnumerable{TSource}"/> that contains the same elements as the input sequence.</returns>
+        [DebuggerHidden]
         public static IEnumerable<TSource> Do<TSource>(this IEnumerable<TSource> source, Action<TSource> action)
         {
             if (source == null) throw new ArgumentNullException("source");
@@ -113,6 +120,7 @@ namespace $rootnamespace$
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
         /// <param name="source">A sequence of values.</param>
+        [DebuggerHidden]
         public static void Execute<TSource>(this IEnumerable<TSource> source)
         {
             if (source == null) throw new ArgumentNullException("source");
@@ -126,6 +134,7 @@ namespace $rootnamespace$
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
         /// <param name="source">A sequence of values.</param>
         /// <param name="action">An action to apply to each element.</param>
+        [DebuggerHidden]
         public static void Execute<TSource>(this IEnumerable<TSource> source, Action<TSource> action)
         {
             if (source == null) throw new ArgumentNullException("source");
