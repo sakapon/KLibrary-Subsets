@@ -195,5 +195,56 @@ namespace $rootnamespace$
             if (l.Count > 0)
                 yield return l.ToArray();
         }
+
+        /// <summary>
+        /// Creates a new sequence by getting values from two elements next to each other in the source sequence.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of source.</typeparam>
+        /// <typeparam name="TResult">The type of the elements of result.</typeparam>
+        /// <param name="source">A sequence of values.</param>
+        /// <param name="func">A function to get a new value from two elements next to each other.</param>
+        /// <returns>An <see cref="IEnumerable{TResult}"/>.</returns>
+        public static IEnumerable<TResult> Between<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TSource, TResult> func)
+        {
+            if (source == null) throw new ArgumentNullException("source");
+            if (func == null) throw new ArgumentNullException("func");
+
+            var enumerator = source.GetEnumerator();
+            if (!enumerator.MoveNext()) yield break;
+
+            TSource e1;
+            TSource e2 = enumerator.Current;
+
+            while (enumerator.MoveNext())
+            {
+                e1 = e2;
+                e2 = enumerator.Current;
+                yield return func(e1, e2);
+            }
+        }
+
+        /// <summary>
+        /// Creates a new sequence by applying an accumulator function over a sequence.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of source.</typeparam>
+        /// <typeparam name="TResult">The type of the elements of result.</typeparam>
+        /// <param name="source">A sequence of values.</param>
+        /// <param name="seed">The initial value.</param>
+        /// <param name="func">A function to get a next value from a pair of a previous value and an element of source.</param>
+        /// <returns>An <see cref="IEnumerable{TResult}"/>.</returns>
+        public static IEnumerable<TResult> Successive<TSource, TResult>(this IEnumerable<TSource> source, TResult seed, Func<TResult, TSource, TResult> func)
+        {
+            if (source == null) throw new ArgumentNullException("source");
+            if (func == null) throw new ArgumentNullException("func");
+
+            var current = seed;
+            yield return current;
+
+            foreach (var item in source)
+            {
+                current = func(current, item);
+                yield return current;
+            }
+        }
     }
 }
